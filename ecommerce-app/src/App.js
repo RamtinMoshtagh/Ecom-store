@@ -1,22 +1,30 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import React from 'react';
-import Layout from './components/layout';
-import HomePage from './pages/homePage';
-import ProductPage from './pages/productPage';
-import CartPage from './pages/cartPage';
-import CheckoutSuccessPage from './pages/checkoutSuccessPage';
-import ContactPage from './pages/contactPage';
+import { CartProvider } from './contexts/CartContext';
+import React, { useState } from 'react';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import CartPage from './pages/CartPage';
+import CheckoutSuccessPage from './pages/CheckoutSuccessPage';
+import ContactPage from './pages/ContactPage';
+import ProductPage from './pages/ProductPage';
+
 
 function App() {
+  const [cartCount, setCartCount] = useState(0); // State to keep track of cart count
+
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Layout><HomePage /></Layout>} />
-        <Route path="/product/:id" element={<Layout><ProductPage /></Layout>} />
-        <Route path="/cart" element={<Layout><CartPage /></Layout>} />
-        <Route path="/checkout-success" element={<Layout><CheckoutSuccessPage /></Layout>} />
-        <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path="/" element={<Layout cartItems={cartCount} setCartItems={setCartCount} />}> {/* Pass cartCount and setCartCount to Layout component */}
+            <Route index element={<HomePage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="checkout-success" element={<CheckoutSuccessPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="product/:id" element={<ProductPage setCartCount={setCartCount} />} /> {/* Pass setCartCount to ProductPage component */}
+          </Route>
+        </Routes>
+      </CartProvider>
     </Router>
   );
 }
