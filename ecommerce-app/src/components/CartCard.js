@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Card = styled.div`
@@ -102,4 +103,18 @@ const CartCard = ({ product, onRemove }) => {
   );
 };
 
+CartCard.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    discountedPrice: PropTypes.number,
+    image: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      alt: PropTypes.string,
+    }).isRequired,
+    quantity: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+  onRemove: PropTypes.func.isRequired,
+};
 export default CartCard;

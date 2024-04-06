@@ -153,7 +153,8 @@ const ContactPage = () => {
           <TextArea id="body" name="body" value={formData.body} onChange={handleChange} />
           {errors.body && <Alert>{errors.body}</Alert>}
         </FormGroup>
-        <Button type="submit">Send Message</Button>
+        {/* Pass onClick prop to Button component */}
+        <Button type="submit" onClick={() => {}}>Send Message</Button>
       </Form>
     </ContactContainer>
   );

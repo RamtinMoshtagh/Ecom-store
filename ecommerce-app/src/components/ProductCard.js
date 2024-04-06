@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import Button from './Button';
 
@@ -101,4 +102,15 @@ const ProductCard = ({ product }) => {
   );
 };
 
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    discountedPrice: PropTypes.number,
+    image: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      alt: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};
 export default ProductCard;
