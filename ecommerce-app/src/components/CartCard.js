@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 const Card = styled.div`
   width: 100%;
-  max-width: 300px; // Increased max-width for better display
+  max-width: 300px;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 15px;
-  margin: 15px auto; // Centering the card for better visual
+  margin: 15px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,11 +22,11 @@ const Card = styled.div`
   }
 
   @media (min-width: 768px) {
-    width: calc(50% - 30px); // Makes cards larger on wider screens
+    width: calc(50% - 30px); 
   }
 
   @media (min-width: 1024px) {
-    width: calc(33.33% - 40px); // Adjusts for very wide screens for better utilization of space
+    width: calc(33.33% - 40px); 
   }
 `;
 
@@ -38,7 +38,7 @@ const ProductImage = styled.img`
 `;
 
 const ProductTitle = styled.h3`
-  font-size: 1.1rem; // Slightly larger for readability
+  font-size: 1.1rem; 
   color: #333;
   text-align: center;
   margin-bottom: 10px;
@@ -65,7 +65,7 @@ const Price = styled.span`
 `;
 
 const RemoveButton = styled.button`
-  padding: 8px 16px; // More padding for a better click area
+  padding: 8px 16px; 
   background-color: #ff3b3b;
   color: #fff;
   border: none;
@@ -80,8 +80,8 @@ const RemoveButton = styled.button`
 `;
 
 const Quantity = styled.div`
-  font-size: 0.9rem; // Made font size consistent with price
-  color: #333; // Darker for better readability
+  font-size: 0.9rem; 
+  color: #333; 
   margin-bottom: 10px;
 `;
 

@@ -21,7 +21,6 @@ const ProductList = styled.div`
 `;
 
 const TotalPrice = styled.p`
-  /* additional styles for total price */
   font-size: 1.2rem;
   text-align: center;
   margin-top: 20px;
@@ -52,7 +51,7 @@ const ResponsiveLink = styled(Link)`
 `;
 
 const CartPage = () => {
-  const { cartItems, clearCart, removeItemFromCart } = useContext(CartContext); // Make sure to include removeItemFromCart here
+  const { cartItems, clearCart, removeItemFromCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleCheckout = () => {
@@ -61,10 +60,9 @@ const CartPage = () => {
   };
 
   const handleRemoveFromCart = (productId) => {
-    removeItemFromCart(productId); // This function is now properly referenced from the context
+    removeItemFromCart(productId);
   };
 
-  // Calculate total price of the entire cart
   const totalPrice = cartItems.reduce((total, item) => {
     return total + (item.discountedPrice ? item.discountedPrice : item.price) * item.quantity;
   }, 0);
@@ -79,7 +77,7 @@ const CartPage = () => {
       </ProductList>
       {cartItems.length > 0 && (
         <>
-          <TotalPrice>Total Price: ${totalPrice.toFixed(2)}</TotalPrice> {/* Display total price */}
+          <TotalPrice>Total Price: ${totalPrice.toFixed(2)}</TotalPrice> 
           <ButtonContainer>
             <Button onClick={handleCheckout}>Checkout</Button>
           </ButtonContainer>

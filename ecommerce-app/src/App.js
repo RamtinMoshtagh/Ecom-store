@@ -16,12 +16,12 @@ function App() {
     <Router>
       <CartProvider>
         <Routes>
-          <Route path="/" element={<Layout cartItems={cartCount} setCartItems={setCartCount} />}> {/* Pass cartCount and setCartCount to Layout component */}
+          <Route path="/" element={<Layout cartItems={cartCount} setCartItems={setCartCount} />}> 
             <Route index element={<HomePage />} />
             <Route path="cart" element={<CartPage />} />
             <Route path="checkout-success" element={<CheckoutSuccessPage />} />
             <Route path="contact" element={<ContactPage />} />
-            <Route path="product/:id" element={<ProductPage setCartCount={setCartCount} />} /> {/* Pass setCartCount to ProductPage component */}
+            <Route path="product/:id" element={<ProductPage setCartCount={setCartCount} />} /> 
           </Route>
         </Routes>
       </CartProvider>

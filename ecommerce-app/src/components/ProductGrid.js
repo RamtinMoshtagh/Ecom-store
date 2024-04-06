@@ -12,7 +12,7 @@ const ProductGrid = styled.div`
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px; // Slightly larger gap for larger screens
+    gap: 30px;
   }
 `;
 

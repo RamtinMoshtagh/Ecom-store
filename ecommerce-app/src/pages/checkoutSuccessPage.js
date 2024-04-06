@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Button from '../components/Button'; // Assuming this is the path to your Button component
+import Button from '../components/Button';
 
 const Container = styled.div`
   max-width: 600px;
@@ -40,13 +40,13 @@ const SuggestionLink = styled(Link)`
 `;
 
 const CheckoutSuccessPage = () => {
-  const navigate = useNavigate(); // Call useNavigate to define 'navigate'
+  const navigate = useNavigate();
 
   return (
     <Container role="alert" aria-live="assertive">
       <Title>Checkout Successful 🎉</Title>
       <Message>Thank you for your purchase! Your order was successful. You will receive an email confirmation shortly.</Message>
-      <Button onClick={() => navigate('/')}>Continue Shopping</Button> {/* Use 'navigate' for navigation */}
+      <Button onClick={() => navigate('/')}>Continue Shopping</Button>
       <EngagementSuggestions>
         <p>Explore More:</p>
         <SuggestionLink to="/new-arrivals">New Arrivals</SuggestionLink>

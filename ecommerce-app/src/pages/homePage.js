@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import ProductGrid from '../components/ProductGrid';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
-  max-width: 900px; // Adjust based on your design needs
+  max-width: 900px;
   margin: 20px auto;
-  position: relative; // This is important for absolute positioning of the SuggestionsList
+  position: relative;
 `;
 
 const SearchInput = styled.input`
@@ -16,6 +16,8 @@ const SearchInput = styled.input`
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  margin-top: ${({ isNavOpen }) => (isNavOpen ? '220px' : '20px')};
+  transition: margin-top 0.3s ease;
 `;
 
 const SuggestionsList = styled.ul`
@@ -27,7 +29,7 @@ const SuggestionsList = styled.ul`
   width: 100%;
   border: 1px solid #ddd;
   border-top: none;
-  z-index: 5; // Make sure this is above other content
+  z-index: ${({ isNavOpen }) => (isNavOpen ? 1 : 5)};
   border-radius: 0 0 5px 5px;
   max-height: 200px;
   overflow-y: auto;
@@ -42,8 +44,6 @@ const SuggestionItem = styled.li`
   }
 `;
 
-
-
 const LoadingIndicator = styled.div`
   text-align: center;
   font-size: 18px;
@@ -56,7 +56,9 @@ const ErrorMessage = styled.div`
   text-align: center;
 `;
 
+
 const HomePage = () => {
+  const { isNavOpen } = useOutletContext();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -96,9 +98,10 @@ const HomePage = () => {
         value={searchTerm}
         onChange={handleSearchChange}
         aria-label="Search products"
+        $isNavOpen={isNavOpen}
       />
-      {suggestions.length > 0 && (
-        <SuggestionsList>
+       {!isNavOpen && suggestions.length > 0 && (
+        <SuggestionsList isNavOpen={isNavOpen}>
           {suggestions.map((suggestion) => (
             <SuggestionItem key={suggestion.id} onClick={() => navigate(`/product/${suggestion.id}`)}>
               {suggestion.title}

@@ -13,7 +13,7 @@ const FooterContainer = styled.footer`
 
 const FooterText = styled.p`
   margin: 0;
-  padding: 0 10px; // Adds padding to prevent text from touching the sides on small screens
+  padding: 0 10px; 
 `;
 
 const LinksContainer = styled.div`

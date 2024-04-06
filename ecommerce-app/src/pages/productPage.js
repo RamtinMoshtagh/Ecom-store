@@ -120,7 +120,6 @@ const ErrorMessage = styled.p`
   text-align: center;
 `;
 
-// Function to generate star ratings visually
 const generateStars = (rating) => {
   return Array.from({ length: 5 }, (_, index) => (
     <span key={index}>{index < rating ? '★' : '☆'}</span>

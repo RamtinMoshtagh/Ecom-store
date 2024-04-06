@@ -86,7 +86,6 @@ const ProductCard = ({ product }) => {
     <Card>
       <ProductImage src={product.image.url} alt={product.image.alt || 'Product Image'} />
       <ProductTitle>{product.title}</ProductTitle>
-      {/* Display discounted price only if it's less than the original price */}
       {product.discountedPrice && product.discountedPrice < product.price ? (
         <>
           <ProductPrice className="original-price">Price: ${product.price.toFixed(2)}</ProductPrice>

@@ -38,16 +38,12 @@ export const CartProvider = ({ children }) => {
     setCartItems(currentItems => {
       return currentItems.reduce((updatedCartItems, item) => {
         if (item.id === productId) {
-          // Subtract the given quantity or 1 if not specified
           const updatedQuantity = item.quantity - quantityToRemove;
 
           if (updatedQuantity > 0) {
-            // If items still remain, update the quantity
             updatedCartItems.push({ ...item, quantity: updatedQuantity });
           }
-          // If updatedQuantity <= 0, item is effectively removed by not adding it back
         } else {
-          // Item is not the one being removed/updated, add back as is
           updatedCartItems.push(item);
         }
 

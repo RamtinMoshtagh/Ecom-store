@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
 
+
 const Layout = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
     <>
-      <Header />
+      <Header isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
       <main>
-        <Outlet />
+        <Outlet context={{ isNavOpen }} />
       </main>
       <Footer />
     </>

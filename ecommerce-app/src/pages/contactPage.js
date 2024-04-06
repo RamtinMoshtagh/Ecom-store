@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Button from '../components/Button'; // Assuming this is the path to your Button component
+import Button from '../components/Button';
 
 const ContactContainer = styled.div`
   max-width: 600px;
@@ -45,7 +45,7 @@ const TextArea = styled.textarea`
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  height: 150px; // Adjusted for text area
+  height: 150px;
 `;
 
 const Alert = styled.div`
@@ -78,7 +78,6 @@ const ContactPage = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts correcting them
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -117,7 +116,7 @@ const ContactPage = () => {
     const isValid = validateForm();
 
     if (isValid) {
-      // Reset form fields and show success message
+      console.log('Form Data:', formData);
       setFormData({
         fullName: '',
         subject: '',
@@ -125,7 +124,7 @@ const ContactPage = () => {
         body: '',
       });
       setSuccess(true);
-      setTimeout(() => setSuccess(false), 3000); // Hide success message after 3 seconds
+      setTimeout(() => setSuccess(false), 3000);
     }
   };
 
