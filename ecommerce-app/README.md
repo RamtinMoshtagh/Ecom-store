@@ -2,6 +2,8 @@
 
 This project is an e-commerce store built with React. It allows users to browse products, add them to the cart, and proceed to checkout. Additionally, it includes features like contact form submission and checkout success page.
 
+Check it out here: https://shoppeyy.netlify.app
+
 ## Getting Started
 
 To get started with this project, follow the instructions below.
