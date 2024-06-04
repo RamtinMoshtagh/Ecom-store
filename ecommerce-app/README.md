@@ -38,8 +38,7 @@ To run the application locally, use the following command:
 `npm start`
 
 This command starts the development server and opens the application in your default web browser. You can access it at http://localhost:3000.
-```
-```
+
 ### Contributing
 
 If you would like to contribute to this project, please follow these steps:
@@ -55,4 +54,4 @@ https://www.linkedin.com/in/ramtin-moshtagh-4817a712a/
 ### License
 
 This project is licensed under the MIT License.
-```
+
